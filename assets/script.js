@@ -31,11 +31,15 @@ function generatePassword() {
         console.log(special);
         var num = confirm ("Would you like numeric values?");
         console.log(num);
-      }
-      else {
+    }
+    else {
         alert("Password must be between 8-128 characters"); 
         generatePassword();
-      }
+    }
+    if (upperCase == false && lowerCase == false && special == false && num == false) {
+        alert("No character types were chosen. At lease 1 character type must be chosen to generate password.");
+        generatePassword();
+    }
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
