@@ -36,10 +36,47 @@ function generatePassword() {
         alert("Password must be between 8-128 characters"); 
         generatePassword();
     }
+
     if (upperCase == false && lowerCase == false && special == false && num == false) {
         alert("No character types were chosen. At lease 1 character type must be chosen to generate password.");
         generatePassword();
     }
+    if(upperCase) {
+        choices = 
+        choices.concat(choiceSets.charUp)
+      
+        }
+        if(lowerCase) {
+        choices = 
+        choices.concat(choiceSets.charLr)
+      
+       }
+      
+        if(special) {
+        choices = 
+        choices.concat(choiceSets.charSp)
+    
+        }
+        if(num) {
+        choices = 
+        choices.concat(choiceSets.number)
+        
+      }
+      var password = "";
+      for(var i = 0; i < length; i++) {
+        password += choices[Math.floor(Math.random() * choices.length)];
+        }
+      
+      console.log(choices)
+    
+      // for (let index = 0; index < length.length; index++) {
+      //   const element = length[index];
+    
+        
+      // }
+    
+      return password;
+    
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
